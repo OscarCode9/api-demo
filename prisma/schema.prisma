@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:OiroFVwL6rb8X9NVJSK3@database-1.cj66o8gq6708.us-east-2.rds.amazonaws.com:5432/database-1"
+}
+
+model User {
+  id               String    @id @default(uuid())
+  email            String    @unique
+  password         String?
+  fullName         String?
+  dateOfBirth      DateTime?
+  nationality      String?
+  country          String?
+  sex              String?
+  purpose          String?
+  confirmationCode String?
+  isVerified       Boolean   @default(false)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
